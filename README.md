@@ -173,6 +173,10 @@ python gen_fastapi.py
 ```
 project/
 │
+├── test_file                # 환경공단 문서  
+    ├──환경공단
+    ├── 건설
+    └── ...
 ├── 환경공단_chroma_Markdown  # Chroma_DB
 ├── gen_fastapi.py           # FastAPI 애플리케이션 메인 파일
 ├── requirements.txt         # 필수 라이브러리 목록
