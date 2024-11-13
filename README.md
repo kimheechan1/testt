@@ -75,11 +75,12 @@ MODEL_PATH="BAAI/bge-m3"
 DB_PATH="Chroma_test"
 COLLECTION_NAME="my_db"
 DEVICE="cpu"  # GPU 사용 시 'cuda'
+OPENAI_API_KEY="보유하고 있는 OPENAI 키를 입력해주세요."
 ```
 
 ### 3. **FastAPI 서버 실행**
 ```bash
-python RAG.py
+python gen_fastapi.py
 ```
 서버는 기본적으로 `http://localhost:5005`에서 실행됩니다.
 
@@ -96,9 +97,9 @@ python RAG.py
 - **요청 Body 예제**:
     ```json
     {
-        "kgptFileSaveName": "sample.pdf",
-        "kgptFileName": "Sample Document",
-        "category": "data"
+        "kgptFileSaveName": "생활폐기물_2022년.pdf",
+        "kgptFileName": "생활폐기물_2022년.pdf",
+        "category": "test_file/환경공단/..."
     }
     ```
 - **응답 예제**:
@@ -172,30 +173,16 @@ python RAG.py
 ```
 project/
 │
-├── data/                   # 문서 파일 저장 경로
-├── RAG.py                  # FastAPI 애플리케이션 메인 파일
-├── requirements.txt        # 필수 라이브러리 목록
-├── .env                    # 환경 변수 파일
-└── README.md               # 이 파일
+├── 환경공단_chroma_Markdown  # Chroma_DB
+├── gen_fastapi.py           # FastAPI 애플리케이션 메인 파일
+├── requirements.txt         # 필수 라이브러리 목록
+├── .env                     # 환경 변수 파일
+└── README.md                
 ```
 
 ---
 
 ## 📚 **기타 참고 사항**
 
-### 로그 파일
-- 로그 파일(`sbl_api.log`)은 **RotatingFileHandler**를 사용하여 최대 크기 100MB로 설정되며, 백업 파일은 최대 2개까지 생성됩니다.
-
-### 성능 튜닝
-- `chunk_size` 및 `chunk_overlap` 값은 사용자의 문서 구조와 검색 요구에 따라 조정 가능합니다.
-
-### 오류 해결
-- **LibreOffice** 설치가 누락된 경우, `.docx` 및 `.pptx` 파일 변환이 실패할 수 있습니다.
 
 ---
-
-### 📧 **문의 사항**
-문제나 개선 사항이 있으면 언제든지 문의해주세요.
-
-**작성일**: 2024-11-13  
-**작성자**: AI Assistant
