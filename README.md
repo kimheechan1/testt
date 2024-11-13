@@ -86,7 +86,7 @@ python gen_fastapi.py
 
 ---
 
-## 📌 **API 설명**
+## **API 설명**
 
 ### **문서 임베딩 (Document Embedder)**
 
